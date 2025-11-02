@@ -1,0 +1,155 @@
+<div class="card" (click)="openOverlay($event)">
+  <div class="card-image">
+    <img [src]="carImage" [alt]="carName">
+  </div>
+  <div class="card-header">
+    <h3 class="car-name">{{ carName }}</h3>
+  </div>
+  
+  <!-- Wartungsstatus Badge -->
+  <div class="maintenance-badge">
+    <div class="progress-circle">{{ completedPercentage }}%</div>
+  </div>
+</div>
+
+<!-- Overlay Modal -->
+@if (isOverlayOpen) {
+  <div class="overlay" (click)="closeOverlay()">
+    <div class="overlay-content" (click)="$event.stopPropagation()">
+      <!-- Header -->
+      <div class="overlay-header">
+        <div class="car-info">
+          <h2>{{ carName }}</h2>
+          <div class="completion-status">
+            <div class="status-bar">
+              <div class="status-fill" [style.width.%]="completedPercentage"></div>
+            </div>
+            <span>{{ completedPercentage }}% abgeschlossen</span>
+          </div>
+        </div>
+        <button class="close-btn" (click)="closeOverlay()">&times;</button>
+      </div>
+
+      <!-- Tabs -->
+      <div class="tabs">
+        <button 
+          class="tab" 
+          [class.active]="activeTab === 'wartung'"
+          (click)="switchTab('wartung')">
+          Wartung
+        </button>
+        <button 
+          class="tab" 
+          [class.active]="activeTab === 'historie'"
+          (click)="switchTab('historie')">
+          Historie
+        </button>
+        <button 
+          class="tab" 
+          [class.active]="activeTab === 'daten'"
+          (click)="switchTab('daten')">
+          Fahrzeugdaten
+        </button>
+      </div>
+
+      <!-- Content -->
+      <div class="overlay-body">
+        @if (activeTab === 'wartung') {
+          <div class="maintenance-section">
+            <div class="category-selector">
+              <button 
+                class="category-btn"
+                [class.active]="selectedCategory === 'regular'"
+                (click)="selectedCategory = 'regular'">
+                Regelmäßige Wartung
+              </button>
+              <button 
+                class="category-btn"
+                [class.active]="selectedCategory === 'yearly'"
+                (click)="selectedCategory = 'yearly'">
+                Jährliche Wartung
+              </button>
+            </div>
+
+            @if (selectedCategory === 'regular') {
+              <div class="category-content">
+                <p class="category-description">Alle 6 Monate oder 10.000 km</p>
+                <div class="checklist">
+                  @for (item of regularMaintenance; track item.id) {
+                    <div class="checklist-item" [class.completed]="item.completed">
+                      <input 
+                        type="checkbox" 
+                        [id]="item.id"
+                        [checked]="item.completed"
+                        (change)="toggleTask(item)">
+                      <label [for]="item.id">
+                        <span class="task-name">{{ item.task }}</span>
+                        @if (item.date) {
+                          <span class="task-date">{{ item.date }}</span>
+                        }
+                      </label>
+                    </div>
+                  }
+                </div>
+              </div>
+            }
+
+            @if (selectedCategory === 'yearly') {
+              <div class="category-content">
+                <p class="category-description">Jährliche Überprüfung und Wartung</p>
+                <div class="checklist">
+                  @for (item of yearlyMaintenance; track item.id) {
+                    <div class="checklist-item" [class.completed]="item.completed">
+                      <input 
+                        type="checkbox" 
+                        [id]="item.id"
+                        [checked]="item.completed"
+                        (change)="toggleTask(item)">
+                      <label [for]="item.id">
+                        <span class="task-name">{{ item.task }}</span>
+                        @if (item.date) {
+                          <span class="task-date">{{ item.date }}</span>
+                        }
+                      </label>
+                    </div>
+                  }
+                </div>
+              </div>
+            }
+          </div>
+        }
+
+        @if (activeTab === 'historie') {
+          <div class="historie-section">
+            <h3>Wartungshistorie</h3>
+            <p class="placeholder">Hier werden abgeschlossene Wartungen dokumentiert...</p>
+          </div>
+        }
+
+        @if (activeTab === 'daten') {
+          <div class="data-section">
+            <h3>Fahrzeugdaten</h3>
+            <div class="data-grid">
+              <div class="data-item">
+                <span class="label">Kilometerstand:</span>
+                <span class="value">-</span>
+              </div>
+              <div class="data-item">
+                <span class="label">Nächste Wartung:</span>
+                <span class="value">-</span>
+              </div>
+              <div class="data-item">
+                <span class="label">Letzte HU/AU:</span>
+                <span class="value">-</span>
+              </div>
+              <div class="data-item">
+                <span class="label">Reifengröße:</span>
+                <span class="value">-</span>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+}

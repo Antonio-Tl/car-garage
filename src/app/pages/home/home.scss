@@ -1,0 +1,36 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 2rem 0;
+  margin-bottom: 2rem;
+  max-width: 1800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1 {
+  margin: 0;
+}
+
+.container {
+  padding: 0 2rem 2rem;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3.5rem;
+
+  // Responsive: 2 Spalten auf Tablets
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  // Responsive: 1 Spalte auf Mobilgeräten
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
+}

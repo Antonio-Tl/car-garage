@@ -1,0 +1,14 @@
+<div class="header">
+  <h1>Car Garage</h1>
+  
+  <app-profile [userName]="userName" [userAvatar]="userAvatar"></app-profile>
+</div>
+
+<div class="container">
+  <div class="card-grid">
+    @for (car of cars; track car.name) {
+      <app-card [carName]="car.name" [carImage]="car.image"></app-card>
+    }
+    <app-add-card (addCar)="onAddCar($event)"></app-add-card>
+  </div>
+</div>

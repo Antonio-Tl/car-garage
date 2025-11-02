@@ -1,0 +1,58 @@
+<div class="add-card" (click)="openModal()">
+  <div class="plus-icon">+</div>
+</div>
+
+<!-- Modal -->
+@if (isModalOpen) {
+  <div class="modal-overlay" (click)="closeModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <div class="modal-header">
+        <h2>Neues Auto hinzufügen</h2>
+        <button class="close-btn" (click)="closeModal()">&times;</button>
+      </div>
+      
+      <form class="modal-body" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="brand">Marke</label>
+          <input 
+            type="text" 
+            id="brand" 
+            [(ngModel)]="carBrand" 
+            name="brand"
+            placeholder="z.B. Porsche"
+            required
+          >
+        </div>
+        
+        <div class="form-group">
+          <label for="model">Modell</label>
+          <input 
+            type="text" 
+            id="model" 
+            [(ngModel)]="carModel" 
+            name="model"
+            placeholder="z.B. 911 GT3"
+            required
+          >
+        </div>
+        
+        <div class="form-group">
+          <label for="image">Bild-URL</label>
+          <input 
+            type="url" 
+            id="image" 
+            [(ngModel)]="carImage" 
+            name="image"
+            placeholder="https://example.com/image.jpg"
+            required
+          >
+        </div>
+        
+        <div class="modal-footer">
+          <button type="button" class="btn-cancel" (click)="closeModal()">Abbrechen</button>
+          <button type="submit" class="btn-submit">Hinzufügen</button>
+        </div>
+      </form>
+    </div>
+  </div>
+}
