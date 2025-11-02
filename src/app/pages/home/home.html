@@ -5,8 +5,10 @@
 </div>
 
 <div class="container">
+  <app-filter (filterChange)="onFilterChange($event)"></app-filter>
+  
   <div class="card-grid">
-    @for (car of cars; track car.name) {
+    @for (car of filteredCars; track car.name) {
       <app-card [carName]="car.name" [carImage]="car.image"></app-card>
     }
     <app-add-card (addCar)="onAddCar($event)"></app-add-card>

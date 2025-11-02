@@ -1,0 +1,89 @@
+<div class="filter-wrapper">
+  <!-- Filter Toggle Button -->
+  <button class="filter-toggle-btn" (click)="toggleFilter()" [class.active]="isExpanded">
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="filter-icon">
+      <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+    </svg>
+    <span>Filter</span>
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chevron-icon" [class.rotated]="isExpanded">
+      <polyline points="6 9 12 15 18 9"></polyline>
+    </svg>
+  </button>
+
+  <!-- Filter Content (Expandable) -->
+  <div class="filter-container" [class.expanded]="isExpanded">
+    <div class="filter-content">
+      <!-- Search Bar -->
+      <div class="search-section">
+        <div class="search-input-wrapper">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-icon">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+          <input 
+            type="text" 
+            class="search-input" 
+            placeholder="Nach Namen suchen..."
+            [(ngModel)]="searchTerm"
+            (ngModelChange)="onSearchChange()"
+          >
+          @if (searchTerm) {
+            <button class="clear-btn" (click)="searchTerm = ''; onSearchChange()">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+          }
+        </div>
+      </div>
+
+      <!-- Sort Options -->
+      <div class="sort-section">
+        <span class="sort-label">Sortieren:</span>
+        
+        <div class="sort-buttons">
+          <button 
+            class="sort-btn" 
+            [class.active]="sortBy === 'name'"
+            (click)="onSortByChange('name')"
+          >
+            Name
+          </button>
+          
+          <button 
+            class="sort-btn" 
+            [class.active]="sortBy === 'percentage'"
+            (click)="onSortByChange('percentage')"
+          >
+            Prozent
+          </button>
+          
+          <button 
+            class="order-btn" 
+            (click)="toggleSortOrder()"
+            [title]="sortOrder === 'asc' ? 'Aufsteigend' : 'Absteigend'"
+          >
+            @if (sortOrder === 'asc') {
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m3 8 4-4 4 4"></path>
+                <path d="M7 4v16"></path>
+                <path d="M11 12h10"></path>
+                <path d="M11 16h7"></path>
+                <path d="M11 20h4"></path>
+              </svg>
+            } @else {
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m3 16 4 4 4-4"></path>
+                <path d="M7 20V4"></path>
+                <path d="M11 4h10"></path>
+                <path d="M11 8h7"></path>
+                <path d="M11 12h4"></path>
+              </svg>
+            }
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
