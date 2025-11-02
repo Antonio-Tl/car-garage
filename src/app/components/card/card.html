@@ -8,7 +8,7 @@
   
   <!-- Wartungsstatus Badge -->
   <div class="maintenance-badge">
-    <div class="progress-circle">{{ completedPercentage }}%</div>
+    <div class="progress-circle" [attr.data-percentage]="completedPercentage">{{ completedPercentage }}%</div>
   </div>
 </div>
 
@@ -22,9 +22,9 @@
           <h2>{{ carName }}</h2>
           <div class="completion-status">
             <div class="status-bar">
-              <div class="status-fill" [style.width.%]="completedPercentage"></div>
+              <div class="status-fill" [style.width.%]="completedPercentage" [attr.data-percentage]="completedPercentage"></div>
             </div>
-            <span>{{ completedPercentage }}% abgeschlossen</span>
+            <span [attr.data-percentage]="completedPercentage">{{ completedPercentage }}% abgeschlossen</span>
           </div>
         </div>
         <button class="close-btn" (click)="closeOverlay()">&times;</button>
@@ -74,9 +74,12 @@
             @if (selectedCategory === 'regular') {
               <div class="category-content">
                 <p class="category-description">Alle 6 Monate oder 10.000 km</p>
+                
+                <!-- Austehende Wartungen -->
+                <h3 class="section-title">Austehend</h3>
                 <div class="checklist">
-                  @for (item of regularMaintenance; track item.id) {
-                    <div class="checklist-item" [class.completed]="item.completed">
+                  @for (item of getPendingTasks(regularMaintenance); track item.id) {
+                    <div class="checklist-item">
                       <input 
                         type="checkbox" 
                         [id]="item.id"
@@ -84,22 +87,50 @@
                         (change)="toggleTask(item)">
                       <label [for]="item.id">
                         <span class="task-name">{{ item.task }}</span>
-                        @if (item.date) {
-                          <span class="task-date">{{ item.date }}</span>
-                        }
                       </label>
                     </div>
                   }
+                  @if (getPendingTasks(regularMaintenance).length === 0) {
+                    <p class="empty-state">Alle Wartungen abgeschlossen! 🎉</p>
+                  }
                 </div>
+
+                <!-- Divider -->
+                @if (getCompletedTasks(regularMaintenance).length > 0) {
+                  <div class="divider"></div>
+                  
+                  <!-- Abgeschlossene Wartungen -->
+                  <h3 class="section-title">Abgeschlossen</h3>
+                  <div class="checklist">
+                    @for (item of getCompletedTasks(regularMaintenance); track item.id) {
+                      <div class="checklist-item completed">
+                        <input 
+                          type="checkbox" 
+                          [id]="item.id"
+                          [checked]="item.completed"
+                          (change)="toggleTask(item)">
+                        <label [for]="item.id">
+                          <span class="task-name">{{ item.task }}</span>
+                          @if (item.date) {
+                            <span class="task-date">{{ item.date }}</span>
+                          }
+                        </label>
+                      </div>
+                    }
+                  </div>
+                }
               </div>
             }
 
             @if (selectedCategory === 'yearly') {
               <div class="category-content">
                 <p class="category-description">Jährliche Überprüfung und Wartung</p>
+                
+                <!-- Austehende Wartungen -->
+                <h3 class="section-title">Austehend</h3>
                 <div class="checklist">
-                  @for (item of yearlyMaintenance; track item.id) {
-                    <div class="checklist-item" [class.completed]="item.completed">
+                  @for (item of getPendingTasks(yearlyMaintenance); track item.id) {
+                    <div class="checklist-item">
                       <input 
                         type="checkbox" 
                         [id]="item.id"
@@ -107,13 +138,38 @@
                         (change)="toggleTask(item)">
                       <label [for]="item.id">
                         <span class="task-name">{{ item.task }}</span>
-                        @if (item.date) {
-                          <span class="task-date">{{ item.date }}</span>
-                        }
                       </label>
                     </div>
                   }
+                  @if (getPendingTasks(yearlyMaintenance).length === 0) {
+                    <p class="empty-state">Alle Wartungen abgeschlossen! 🎉</p>
+                  }
                 </div>
+
+                <!-- Divider -->
+                @if (getCompletedTasks(yearlyMaintenance).length > 0) {
+                  <div class="divider"></div>
+                  
+                  <!-- Abgeschlossene Wartungen -->
+                  <h3 class="section-title">Abgeschlossen</h3>
+                  <div class="checklist">
+                    @for (item of getCompletedTasks(yearlyMaintenance); track item.id) {
+                      <div class="checklist-item completed">
+                        <input 
+                          type="checkbox" 
+                          [id]="item.id"
+                          [checked]="item.completed"
+                          (change)="toggleTask(item)">
+                        <label [for]="item.id">
+                          <span class="task-name">{{ item.task }}</span>
+                          @if (item.date) {
+                            <span class="task-date">{{ item.date }}</span>
+                          }
+                        </label>
+                      </div>
+                    }
+                  </div>
+                }
               </div>
             }
           </div>

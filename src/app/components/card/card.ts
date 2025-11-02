@@ -69,7 +69,17 @@ export class Card {
     item.completed = !item.completed;
     if (item.completed) {
       item.date = new Date().toLocaleDateString('de-DE');
+    } else {
+      item.date = undefined;
     }
+  }
+
+  getPendingTasks(items: MaintenanceItem[]) {
+    return items.filter(item => !item.completed);
+  }
+
+  getCompletedTasks(items: MaintenanceItem[]) {
+    return items.filter(item => item.completed);
   }
 
   get regularMaintenance() {

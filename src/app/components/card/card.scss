@@ -77,6 +77,124 @@
     font-weight: 600;
     font-size: 0.85rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+
+    // Farbliche Markierung basierend auf Prozent
+    &[data-percentage='0'],
+    &[data-percentage='1'],
+    &[data-percentage='2'],
+    &[data-percentage='3'],
+    &[data-percentage='4'],
+    &[data-percentage='5'],
+    &[data-percentage='6'],
+    &[data-percentage='7'],
+    &[data-percentage='8'],
+    &[data-percentage='9'],
+    &[data-percentage='10'],
+    &[data-percentage='11'],
+    &[data-percentage='12'],
+    &[data-percentage='13'],
+    &[data-percentage='14'],
+    &[data-percentage='15'],
+    &[data-percentage='16'],
+    &[data-percentage='17'],
+    &[data-percentage='18'],
+    &[data-percentage='19'],
+    &[data-percentage='20'],
+    &[data-percentage='21'],
+    &[data-percentage='22'],
+    &[data-percentage='23'],
+    &[data-percentage='24'],
+    &[data-percentage='25'],
+    &[data-percentage='26'],
+    &[data-percentage='27'],
+    &[data-percentage='28'],
+    &[data-percentage='29'],
+    &[data-percentage='30'],
+    &[data-percentage='31'],
+    &[data-percentage='32'],
+    &[data-percentage='33'] {
+      background: rgba(244, 67, 54, 0.3);
+      border-color: rgba(244, 67, 54, 0.5);
+      color: #ff5252;
+    }
+
+    &[data-percentage='34'],
+    &[data-percentage='35'],
+    &[data-percentage='36'],
+    &[data-percentage='37'],
+    &[data-percentage='38'],
+    &[data-percentage='39'],
+    &[data-percentage='40'],
+    &[data-percentage='41'],
+    &[data-percentage='42'],
+    &[data-percentage='43'],
+    &[data-percentage='44'],
+    &[data-percentage='45'],
+    &[data-percentage='46'],
+    &[data-percentage='47'],
+    &[data-percentage='48'],
+    &[data-percentage='49'],
+    &[data-percentage='50'],
+    &[data-percentage='51'],
+    &[data-percentage='52'],
+    &[data-percentage='53'],
+    &[data-percentage='54'],
+    &[data-percentage='55'],
+    &[data-percentage='56'],
+    &[data-percentage='57'],
+    &[data-percentage='58'],
+    &[data-percentage='59'],
+    &[data-percentage='60'],
+    &[data-percentage='61'],
+    &[data-percentage='62'],
+    &[data-percentage='63'],
+    &[data-percentage='64'],
+    &[data-percentage='65'],
+    &[data-percentage='66'] {
+      background: rgba(255, 152, 0, 0.3);
+      border-color: rgba(255, 152, 0, 0.5);
+      color: #ffab40;
+    }
+
+    &[data-percentage='67'],
+    &[data-percentage='68'],
+    &[data-percentage='69'],
+    &[data-percentage='70'],
+    &[data-percentage='71'],
+    &[data-percentage='72'],
+    &[data-percentage='73'],
+    &[data-percentage='74'],
+    &[data-percentage='75'],
+    &[data-percentage='76'],
+    &[data-percentage='77'],
+    &[data-percentage='78'],
+    &[data-percentage='79'],
+    &[data-percentage='80'],
+    &[data-percentage='81'],
+    &[data-percentage='82'],
+    &[data-percentage='83'],
+    &[data-percentage='84'],
+    &[data-percentage='85'],
+    &[data-percentage='86'],
+    &[data-percentage='87'],
+    &[data-percentage='88'],
+    &[data-percentage='89'],
+    &[data-percentage='90'],
+    &[data-percentage='91'],
+    &[data-percentage='92'],
+    &[data-percentage='93'],
+    &[data-percentage='94'],
+    &[data-percentage='95'],
+    &[data-percentage='96'],
+    &[data-percentage='97'],
+    &[data-percentage='98'],
+    &[data-percentage='99'],
+    &[data-percentage='100'] {
+      background: rgba(76, 175, 80, 0.3);
+      border-color: rgba(76, 175, 80, 0.5);
+      color: #69f0ae;
+    }
   }
 }
 
@@ -142,8 +260,120 @@
 
       .status-fill {
         height: 100%;
-        background: linear-gradient(90deg, #4caf50, #8bc34a);
-        transition: width 0.3s ease;
+        transition: width 0.3s ease, background 0.3s ease;
+
+        // Rot: 0-33%
+        &[data-percentage='0'],
+        &[data-percentage='1'],
+        &[data-percentage='2'],
+        &[data-percentage='3'],
+        &[data-percentage='4'],
+        &[data-percentage='5'],
+        &[data-percentage='6'],
+        &[data-percentage='7'],
+        &[data-percentage='8'],
+        &[data-percentage='9'],
+        &[data-percentage='10'],
+        &[data-percentage='11'],
+        &[data-percentage='12'],
+        &[data-percentage='13'],
+        &[data-percentage='14'],
+        &[data-percentage='15'],
+        &[data-percentage='16'],
+        &[data-percentage='17'],
+        &[data-percentage='18'],
+        &[data-percentage='19'],
+        &[data-percentage='20'],
+        &[data-percentage='21'],
+        &[data-percentage='22'],
+        &[data-percentage='23'],
+        &[data-percentage='24'],
+        &[data-percentage='25'],
+        &[data-percentage='26'],
+        &[data-percentage='27'],
+        &[data-percentage='28'],
+        &[data-percentage='29'],
+        &[data-percentage='30'],
+        &[data-percentage='31'],
+        &[data-percentage='32'],
+        &[data-percentage='33'] {
+          background: linear-gradient(90deg, #f44336, #e57373);
+        }
+
+        // Orange/Gelb: 34-66%
+        &[data-percentage='34'],
+        &[data-percentage='35'],
+        &[data-percentage='36'],
+        &[data-percentage='37'],
+        &[data-percentage='38'],
+        &[data-percentage='39'],
+        &[data-percentage='40'],
+        &[data-percentage='41'],
+        &[data-percentage='42'],
+        &[data-percentage='43'],
+        &[data-percentage='44'],
+        &[data-percentage='45'],
+        &[data-percentage='46'],
+        &[data-percentage='47'],
+        &[data-percentage='48'],
+        &[data-percentage='49'],
+        &[data-percentage='50'],
+        &[data-percentage='51'],
+        &[data-percentage='52'],
+        &[data-percentage='53'],
+        &[data-percentage='54'],
+        &[data-percentage='55'],
+        &[data-percentage='56'],
+        &[data-percentage='57'],
+        &[data-percentage='58'],
+        &[data-percentage='59'],
+        &[data-percentage='60'],
+        &[data-percentage='61'],
+        &[data-percentage='62'],
+        &[data-percentage='63'],
+        &[data-percentage='64'],
+        &[data-percentage='65'],
+        &[data-percentage='66'] {
+          background: linear-gradient(90deg, #ff9800, #ffb74d);
+        }
+
+        // Grün: 67-100%
+        &[data-percentage='67'],
+        &[data-percentage='68'],
+        &[data-percentage='69'],
+        &[data-percentage='70'],
+        &[data-percentage='71'],
+        &[data-percentage='72'],
+        &[data-percentage='73'],
+        &[data-percentage='74'],
+        &[data-percentage='75'],
+        &[data-percentage='76'],
+        &[data-percentage='77'],
+        &[data-percentage='78'],
+        &[data-percentage='79'],
+        &[data-percentage='80'],
+        &[data-percentage='81'],
+        &[data-percentage='82'],
+        &[data-percentage='83'],
+        &[data-percentage='84'],
+        &[data-percentage='85'],
+        &[data-percentage='86'],
+        &[data-percentage='87'],
+        &[data-percentage='88'],
+        &[data-percentage='89'],
+        &[data-percentage='90'],
+        &[data-percentage='91'],
+        &[data-percentage='92'],
+        &[data-percentage='93'],
+        &[data-percentage='94'],
+        &[data-percentage='95'],
+        &[data-percentage='96'],
+        &[data-percentage='97'],
+        &[data-percentage='98'],
+        &[data-percentage='99'],
+        &[data-percentage='100'] {
+          background: linear-gradient(90deg, #4caf50, #8bc34a);
+        }
       }
     }
 
@@ -151,6 +381,119 @@
       color: rgba(255, 255, 255, 0.8);
       font-size: 0.9rem;
       min-width: 120px;
+      font-weight: 600;
+      transition: color 0.3s ease;
+
+      // Farbige Prozent-Anzeige
+      &[data-percentage='0'],
+      &[data-percentage='1'],
+      &[data-percentage='2'],
+      &[data-percentage='3'],
+      &[data-percentage='4'],
+      &[data-percentage='5'],
+      &[data-percentage='6'],
+      &[data-percentage='7'],
+      &[data-percentage='8'],
+      &[data-percentage='9'],
+      &[data-percentage='10'],
+      &[data-percentage='11'],
+      &[data-percentage='12'],
+      &[data-percentage='13'],
+      &[data-percentage='14'],
+      &[data-percentage='15'],
+      &[data-percentage='16'],
+      &[data-percentage='17'],
+      &[data-percentage='18'],
+      &[data-percentage='19'],
+      &[data-percentage='20'],
+      &[data-percentage='21'],
+      &[data-percentage='22'],
+      &[data-percentage='23'],
+      &[data-percentage='24'],
+      &[data-percentage='25'],
+      &[data-percentage='26'],
+      &[data-percentage='27'],
+      &[data-percentage='28'],
+      &[data-percentage='29'],
+      &[data-percentage='30'],
+      &[data-percentage='31'],
+      &[data-percentage='32'],
+      &[data-percentage='33'] {
+        color: #ff5252;
+      }
+
+      &[data-percentage='34'],
+      &[data-percentage='35'],
+      &[data-percentage='36'],
+      &[data-percentage='37'],
+      &[data-percentage='38'],
+      &[data-percentage='39'],
+      &[data-percentage='40'],
+      &[data-percentage='41'],
+      &[data-percentage='42'],
+      &[data-percentage='43'],
+      &[data-percentage='44'],
+      &[data-percentage='45'],
+      &[data-percentage='46'],
+      &[data-percentage='47'],
+      &[data-percentage='48'],
+      &[data-percentage='49'],
+      &[data-percentage='50'],
+      &[data-percentage='51'],
+      &[data-percentage='52'],
+      &[data-percentage='53'],
+      &[data-percentage='54'],
+      &[data-percentage='55'],
+      &[data-percentage='56'],
+      &[data-percentage='57'],
+      &[data-percentage='58'],
+      &[data-percentage='59'],
+      &[data-percentage='60'],
+      &[data-percentage='61'],
+      &[data-percentage='62'],
+      &[data-percentage='63'],
+      &[data-percentage='64'],
+      &[data-percentage='65'],
+      &[data-percentage='66'] {
+        color: #ffab40;
+      }
+
+      &[data-percentage='67'],
+      &[data-percentage='68'],
+      &[data-percentage='69'],
+      &[data-percentage='70'],
+      &[data-percentage='71'],
+      &[data-percentage='72'],
+      &[data-percentage='73'],
+      &[data-percentage='74'],
+      &[data-percentage='75'],
+      &[data-percentage='76'],
+      &[data-percentage='77'],
+      &[data-percentage='78'],
+      &[data-percentage='79'],
+      &[data-percentage='80'],
+      &[data-percentage='81'],
+      &[data-percentage='82'],
+      &[data-percentage='83'],
+      &[data-percentage='84'],
+      &[data-percentage='85'],
+      &[data-percentage='86'],
+      &[data-percentage='87'],
+      &[data-percentage='88'],
+      &[data-percentage='89'],
+      &[data-percentage='90'],
+      &[data-percentage='91'],
+      &[data-percentage='92'],
+      &[data-percentage='93'],
+      &[data-percentage='94'],
+      &[data-percentage='95'],
+      &[data-percentage='96'],
+      &[data-percentage='97'],
+      &[data-percentage='98'],
+      &[data-percentage='99'],
+      &[data-percentage='100'] {
+        color: #69f0ae;
+      }
     }
   }
 }
@@ -269,13 +612,41 @@
   .category-content {
     .category-description {
       color: rgba(255, 255, 255, 0.6);
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
       font-size: 0.95rem;
+    }
+
+    .section-title {
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 0 0 1rem 0;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .empty-state {
+      text-align: center;
+      color: rgba(255, 255, 255, 0.5);
+      padding: 2rem;
+      font-style: italic;
     }
   }
 
   .checklist {
     margin-bottom: 2rem;
+  }
+
+  .divider {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2) 20%,
+      rgba(255, 255, 255, 0.2) 80%,
+      transparent
+    );
+    margin: 2rem 0;
   }
 }
 
